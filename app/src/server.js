@@ -1,11 +1,9 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+import cookieParser from 'cookie-parser';
+import express      from 'express';
+import path         from 'path';
+import settings     from './libs/settings';
 
 var app = express();
-
-app.use(logger('dev'));
 app.use(cookieParser());
 
 // catch 404 and forward to error handler
@@ -39,5 +37,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.listen(settings.port, () => {
+  console.log(`Server running on port ${settings.port}`);
+});
 
-module.exports = app;
+
+export default app;
