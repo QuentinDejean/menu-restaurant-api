@@ -1,4 +1,4 @@
-import connectDB from './config/db';
+import { connectDB } from './config/database';
 import express from 'express';
 import settings from './libs/settings';
 
