@@ -11,4 +11,15 @@ router.route('/').get((req, res) => {
   });
 });
 
+router.route('/').post((req, res) => {
+  const category = new Category(req.body);
+  category.save((err) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(category);
+    }
+  });
+});
+
 export default router;

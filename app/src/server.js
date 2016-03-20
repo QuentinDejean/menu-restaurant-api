@@ -1,10 +1,13 @@
 import { connectDB } from './config/database';
+import bodyParser from 'body-parser';
 import express from 'express';
 import routes from './routes';
 
 import settings from './libs/settings';
 
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 connectDB();
 
 routes(app);
