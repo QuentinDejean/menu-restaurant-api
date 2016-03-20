@@ -5,7 +5,8 @@ const Category = new Schema();
 
 Category.add({
   name: { type: String, required: true },
-  categories: [Category]
+  subCategories: [Category],
+  dishes: { type: Array, ref: 'Dish' }
 });
 
 export default mongoose.model('Category', Category);

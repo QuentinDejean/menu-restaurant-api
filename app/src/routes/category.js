@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.route('/').get((req, res) => {
   Category.find({}, (err, docs) => {
-    console.log(docs);
     res.status(200);
     res.send(docs);
   });
@@ -19,6 +18,36 @@ router.route('/').post((req, res) => {
     } else {
       res.status(200).send(category);
     }
+  });
+});
+
+router.route('/:id').get((req, res) => {
+  Category.findById(req.params.id, (err, docs) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    res.status(200).send(docs);
+  });
+});
+
+router.route('/:id/dish').post((req, res) => {
+  Category.findById(req.params.id, (err, docs) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    res.status(200).send(docs);
+  });
+});
+
+router.route('/:id/dish/:dishId').put((req, res) => {
+  Category.findById(req.params.id, (err, docs) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+
+    res.status(200).send(docs);
   });
 });
 
