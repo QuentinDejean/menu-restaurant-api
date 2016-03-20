@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const connect = function connect() {
+const connectDB = function connectDB() {
   const options = {
     server: {
       socketOptions: {
@@ -11,8 +11,8 @@ const connect = function connect() {
 
   mongoose.connect('mongodb://localhost/restaurant', options);
   mongoose.connection.on('error', console.log);
-  mongoose.connection.on('disconnected', connect);
+  mongoose.connection.on('disconnected', connectDB);
 };
 
-export { connect };
+export { connectDB };
 export default mongoose;

@@ -8,4 +8,4 @@ Category.add({
   categories: [Category]
 });
 
-mongoose.model('Category', Category);
+export default mongoose.model('Category', Category);

@@ -10,4 +10,4 @@ Dish.add({
   price: { type: Number, min: 0.0 }
 });
 
-mongoose.model('Dish', Dish);
+export default mongoose.model('Dish', Dish);
