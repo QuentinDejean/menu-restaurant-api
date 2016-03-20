@@ -1,6 +1,6 @@
 import Category from '../models/Category';
 
-const CategoryService = {
+const categoryService = {
   create: (data, cb) => {
     const category = new Category(data);
     category.save((err) => {
@@ -17,4 +17,4 @@ const CategoryService = {
   }
 };
 
-export default CategoryService;
+export default categoryService;
